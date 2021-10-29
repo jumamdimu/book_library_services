@@ -31,18 +31,20 @@ The main file, the one that starts it all up is the index.js. There are four dis
 The database.js file initiates the API database  
 The Book.js file sets up a model for a Book  
 The books.js file contains the book routes for the system. There are four distinct sections to this file:   
-1.	The initial section, which requires all needed modules and instantiates the database.   
-2.	The setup section, which handles loading models and controller  
-3.	The middleware setup section, which handles setting up all pieces of middleware, including all caches and input validation.  
-4.	The routes including get, put, delete, and post  
+1. The initial section, which requires all needed modules and instantiates the database.   
+2. The setup section, which handles loading models and controller  
+3. The middleware setup section, which handles setting up all pieces of middleware, including all caches and input validation.  
+4. The routes including get, put, delete, and post  
 This Book Library Service is an API which maintains the information about the user’s books present in the library. Users can add, update, delete, and view books. This API has been created to automate the activities performed in library, related to the members of the library. Furthermore, the API consists of the Weather update service.  
 The API has a separate client user interface to demonstrate its usage.   
 # Installation
 First install Redis (https://redis.io/topics/quickstart) and Node.js (https://nodejs.org/en/download/) then to initiate and install all the dependencies navigate to the API folder and run “npm install” from the command prompt.   
 # How to Run the app
-Run redis server by executing “redis-server” from the command prompt.  
-While Redis server is running, run the API by executing “node index.js”  
-
+• Run redis server by executing “redis-server” from the command prompt.  
+• While Redis server is running, run the API by executing “node index.js”  
+• In the project there are two folders, one is api and the other is ui  
+• To run the server side API navigate to the api folder and execute index.js file.  
+• To run the client side code, navigate to the ui folder and double click index.html file.  
 # The Scope of the API
 The API provides service for adding, updating, deleting and getting books.  
 The User Interface Part provides add, delete, update and list screen for the library services.  
