@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Book Library Services</title>
+<link rel="icon" href="icon.png" sizes="32x32" type="image/png">
+<style>
+body {
+background-color: rgb(240, 250, 255);
+font-family: "Helvetica", Sans-Serif;
+size: 14;
+}
+</style>
+</head>
+<body>
+<p><strong>Book Library Services</strong></p>
+<p><strong>Description</strong></p>
+<p>Book Library Services is a REST API (also known as RESTful API)</p>
+<p>This is a Book Library Service</p>
+<p>The API uses JSON for communication with the clients.</p>
+<p>The API contains the model for books</p>
+<p>The API uses the DB for storing book records; however the service keeps a copy of the book in memory for the rapid getting. For example, if the user requests same books several times, the API retrieves the record once.</p>
+<p>The API runs on a server and is in charge of handling a set of services, while listening for incoming requests concerning the said services. The responses, in turn, are delivered via the initiated connection by a client system requesting one of those services.</p>
+<p>The main point behind this development is to separate the front-end User Interface related processing of the book records from the server-side processes, which takes care of the storage and server side manipulation of records.</p>
+<p>The communication between server and client is stateless where by each given request coming from the client side must have all the required information for the server-side instance to understand it.</p>
+<p>The API utilizes the Redis technology for in-memory data storage. Redis acts as a key-value cache and database.</p>
+<p><strong>Folder Structure</strong></p>
+<p>Db</p>
+<p>--database.js</p>
+<p>Models</p>
+<p>--Book.js</p>
+<p>Routes</p>
+<p>--books.js</p>
+<p>--weather.js</p>
+<p>Config.js</p>
+<p>Iindex.html</p>
+<p>Index.js</p>
+<p>Library.db</p>
+<p>Package.json</p>
+<p>&nbsp;</p>
+<p>The main file, the one that starts it all up is the index.js. There are four distinct sections to this file:</p>
+<ol>
+<li>The initial section, which requires all needed modules and instantiates the server.</li>
+<li>The middleware setup section, which handles setting up all pieces of middleware.</li>
+<li>The setup section, which handles setting up routes (books and weather).</li>
+<li>The server start section (node index.js), which starts the web server and the database client.</li>
+</ol>
+<p>The database.js file initiates the API database</p>
+<p>The Book.js file sets up a model for a Book</p>
+<p>The books.js file contains the book routes for the system. There are four distinct sections to this file:</p>
+<ol>
+<li>The initial section, which requires all needed modules and instantiates the database.</li>
+<li>The setup section, which handles loading models and controller</li>
+<li>The middleware setup section, which handles setting up all pieces of middleware, including all caches and input validation.</li>
+<li>The routes including get, put, delete, and post</li>
+</ol>
+<p>This Book Library Service is an API which maintains the information about the user&rsquo;s books present in the library. Users can add, update, delete, and view books. This API has been created to automate the activities performed in library, related to the members of the library. Furthermore, the API consists of the Weather update service.</p>
+<p>The API has a separate client user interface to demonstrate its usage.</p>
+<p><strong>Installation</strong></p>
+<p>First install Redis (https://redis.io/topics/quickstart) and Node.js (https://nodejs.org/en/download/) then to initiate and install all the dependencies navigate to the API folder and run &ldquo;npm install&rdquo; from the command prompt.</p>
+<p><strong>How to Run the app</strong></p>
+<p>Run redis server by executing &ldquo;redis-server&rdquo; from the command prompt.</p>
+<p>While Redis server is running, run the API by executing &ldquo;node index.js&rdquo;</p>
+<p><strong>The Scope of the API</strong></p>
+<p>The API provides service for adding, updating, deleting and getting books.</p>
+<p>The User Interface Part provides add, delete, update and list screen for the library services.</p>
+<p>The API gets the real time data from https://openweathermap.org/ and service to UI.</p>
+<p>This API caches the weather data after for one hour.</p>
+<p>The API is flexible free for extensibility, able to handle the addition of new features.</p>
+<p><strong>Pre Requisites</strong></p>
+<ul>
+<li>Node</li>
+<li>Express</li>
+<li>Redis</li>
+<li>Sequelize</li>
+<li>Sqlite3 database for storage of the book records</li>
+</ul>
+<p><strong>End Points</strong></p>
+<ul>
+<li>GET <a href="http://localhost:3000/books">http://localhost:3000/books</a></li>
+<li>GET <a href="http://localhost:3000/books/isbn">http://localhost:3000/books/isbn</a></li>
+<li>PUT <a href="http://localhost:3000/books/isbn">http://localhost:3000/books/isbn</a></li>
+<li>DELETE <a href="http://localhost:3000/books/isbn">http://localhost:3000/books/isbn</a></li>
+<li>POST <a href="http://localhost:3000/books/">http://localhost:3000/books/</a></li>
+</ul>
+<p>These end points provide a set of general actions that any API that is resource based should be able to provide: create, retrieve, update, and delete (CRUD) actions.</p>
+<p>HTTP Verbs and Their Proposed Actions</p>
+<ul>
+<li>GET - Access a book resource in a read-only mode</li>
+<li>POST Used to add/create a new book to the server storage</li>
+<li>PUT Used to update a given book</li>
+<li>DELETE Used to delete a book</li>
+</ul>
+<p>The API responds with several status codes, numbers that represents the response related to it. These include 200 for &ldquo;OK,&rdquo; 404 for &ldquo;Page not found,&rdquo; 500 for &ldquo;Internal server error,&rdquo; 201 Created, that is the book was created and the API has approved it.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>
