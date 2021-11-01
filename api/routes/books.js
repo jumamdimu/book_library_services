@@ -46,7 +46,7 @@ const resetCachedData = () => {
         if (data !== null) {
             const books = await Book.findAll()
             // Set data to Redis
-            client.setex("books", 60, JSON.stringify(books))
+            client.setex("books", 3600, JSON.stringify(books))
         } 
     });
 }
@@ -108,7 +108,7 @@ router.post('/', async (req, res) => { // http://localhost:3000
 router.get('/', cacheAllBooks, async (req, res) => { // http://localhost:3000
     const books = await Book.findAll()
     // Set data to Redis
-    client.setex("books", 60, JSON.stringify(books));
+    client.setex("books", 3600, JSON.stringify(books));
     res.send(books)
 })
 
@@ -117,7 +117,7 @@ router.get('/:isbn', cacheOneBook, async (req, res) => { // http://localhost:300
     const requested_isbn = req.params.isbn
     const book = await Book.findOne({ where: { isbn: requested_isbn }})
     // Set data to Redis
-    client.setex(requested_isbn, 60, JSON.stringify(book));
+    client.setex(requested_isbn, 3600, JSON.stringify(book));
     res.send(book)
 })
 
@@ -154,7 +154,7 @@ router.put('/:isbn', async (req, res) => { // http://localhost:3000/books/978148
             await book.save()
     
             // Set data to Redis
-            client.setex(updated_isbn, 60, JSON.stringify(book))
+            client.setex(updated_isbn, 3600, JSON.stringify(book))
         
             resetCachedData()
         
